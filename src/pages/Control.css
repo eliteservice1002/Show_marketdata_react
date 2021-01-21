@@ -1,0 +1,34 @@
+input[type=button] {
+    padding: 6px 10px;
+    background-color: #e0a329;
+    border: none;
+    border-radius: 2px;
+    font-size: 12pt;
+    margin-top: 9px;
+    transition: 0.25s;
+}
+
+input[type=button]:hover {
+  background-color: #9d6900;
+}
+
+.Control {
+  text-align: center;
+  width: 95%;
+}
+
+.labels {
+  text-align: right;
+}
+.inputs {
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+.button {
+  margin:auto;
+}
+.row {
+  margin:8px 0;
+}
