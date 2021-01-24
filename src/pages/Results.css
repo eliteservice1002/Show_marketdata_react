@@ -1,5 +1,6 @@
 .Results {
   text-align: center;
+  margin-left: -20%;
 }
 
 .pagenation_container {
@@ -8,4 +9,8 @@
   justify-content: center;
   margin-top: 1rem;
   margin-bottom: 2rem;
+}
+
+tr td {
+  padding: 5px;
 }

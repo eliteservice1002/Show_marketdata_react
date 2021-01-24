@@ -61,7 +61,7 @@ const Opportunity = () => {
   }
 
   return (
-    <div className="Results">
+    <div className="Opportunity">
       <div className="container">
         <table>
           <tr className='header'>
