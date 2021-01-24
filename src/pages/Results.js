@@ -47,7 +47,6 @@ const Results = () => {
       first = (51 * (param - 1)) - 1;
       last = (51 * param - 1) - 1;
     }
-
     datas.map((val, index) => {
       if (index >= first && index <= last) {
         data.push(val)
@@ -77,12 +76,14 @@ const Results = () => {
               <td>Price on buy</td>
               <td>Qty sell</td>
               <td>Qty buy</td>
-              <td>Fee on sell</td>
-              <td>Fee on buy</td>
               <td>Result in sell</td>
               <td>Result in buy</td>
-              <td>Earnings</td>
-
+              <td>Not Executed in coin</td>
+              <td>Not Executed in USDT</td>
+              <td>Amount</td>
+              <td>Earn USDT</td>
+              <td>Perc Operation</td>
+              <td>Perc Pool</td>
             </tr>
           </thead>
 
@@ -100,13 +101,18 @@ const Results = () => {
                   <td>{line.exchange_b}</td>
                   <td>{(Math.round(line.price_exec_onSELL * 100) / 100).toFixed(2)}</td>
                   <td>{(Math.round(line.price_exec_onBUY * 100) / 100).toFixed(2)}</td>
-                  <td>{(Math.round(line.qty_exec_onSELL * 10000) / 10000).toFixed(4)}</td>
-                  <td>{(Math.round(line.qty_exec_onBUY * 10000) / 10000).toFixed(4)}</td>
-                  <td>{(Math.round(line.fee_exec_onSELL * 100000000) / 100000000).toFixed(8)}</td>
-                  <td>{(Math.round(line.fee_exec_onBUY * 100000000) / 100000000).toFixed(8)}</td>
+                  <td>{(Math.round(line.qty_exec_onSELL * 1000) / 1000).toFixed(3)}</td>
+                  <td>{(Math.round(line.qty_exec_onBUY * 1000) / 1000).toFixed(3)}</td>
+                  {/* <td>{(Math.round(line.fee_exec_onSELL * 1000000) / 1000000).toFixed(6)}</td>
+                  <td>{(Math.round(line.fee_exec_onBUY * 1000000) / 1000000).toFixed(6)}</td> */}
                   <td>{(Math.round(line.result_amount_inSELL * 100000000) / 100000000).toFixed(8)}</td>
                   <td>{(Math.round(line.result_amount_inBUY * 100000000) / 100000000).toFixed(8)}</td>
-                  <td>{(Math.round(line.arbitra_earn_amount_inquote * 100000000) / 100000000).toFixed(8)}</td>
+                  <td>{line.notexecutedamount_inCoin === null ? 0 : line.notexecutedamount_inCoin}</td>
+                  <td>{line.notexecutedamount_inUSDT === null ? 0 : line.notexecutedamount_inUSDT}</td>
+                  <td>{(Math.round(line.net_earn_inbase * 1000000) / 1000000).toFixed(6)}</td>
+                  <td>{(Math.round(line.earn_inUSDT * 1000000) / 1000000).toFixed(6)}</td>
+                  <td>{(Math.round(line.net_earn_perc * 1000000) / 1000000).toFixed(6)}</td>
+                  <td>{(Math.round(line.net_earn_bypool * 1000000) / 1000000).toFixed(6)}</td>
                 </tr>
               )
 

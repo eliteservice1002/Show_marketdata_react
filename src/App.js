@@ -23,6 +23,7 @@ import Historic from './pages/Historic';
 import Opportunity from './pages/Opportunity';
 import OppCertification from './pages/OppCertification';
 import ResultCertification from './pages/ResultCertification';
+import MLResult from './pages/ML_result';
 
 const App = () => {
 
@@ -65,7 +66,11 @@ const App = () => {
               <Link to='/historic'>Historic</Link>
             </Button>
           </Col>
-          
+          <Col xs="2" className="header_menu">
+            <Button>
+              <Link to='/mlresult'>ML Result</Link>
+            </Button>
+          </Col>
         </Row>
 
         <Switch>
@@ -89,6 +94,9 @@ const App = () => {
           </Route>
           <Route path='/historic'>
             <Historic />
+          </Route>
+          <Route path='/mlresult'>
+            <MLResult />
           </Route>
           
         </Switch>

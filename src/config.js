@@ -1,6 +1,7 @@
 const APIUrl = process.env.REACT_APP_API_URL
 const APIControlUrl = process.env.REACT_APP_API_CONTROL_URL
 const CertificationUrl = process.env.REACT_APP_API_CERTIFICATION_URL
+const MLUrl = process.env.REACT_APP_API_ML_URL
 
 const pairs = [
   {
@@ -90,7 +91,8 @@ const exchanges = [
 export { 
 	APIUrl, 
   APIControlUrl,
-  CertificationUrl, 
+  CertificationUrl,
+  MLUrl, 
 	exchanges, 
 	pairs,
   coins_a,
