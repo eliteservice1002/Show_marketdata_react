@@ -101,14 +101,14 @@ const Results = () => {
                   <td>{line.exchange_b}</td>
                   <td>{(Math.round(line.price_exec_onSELL * 100) / 100).toFixed(2)}</td>
                   <td>{(Math.round(line.price_exec_onBUY * 100) / 100).toFixed(2)}</td>
-                  <td>{(Math.round(line.qty_exec_onSELL * 1000) / 1000).toFixed(3)}</td>
-                  <td>{(Math.round(line.qty_exec_onBUY * 1000) / 1000).toFixed(3)}</td>
+                  <td>{(Math.round(line.qty_exec_onSELL * 1000000) / 1000000).toFixed(6)}</td>
+                  <td>{(Math.round(line.qty_exec_onBUY * 1000000) / 1000000).toFixed(6)}</td>
                   {/* <td>{(Math.round(line.fee_exec_onSELL * 1000000) / 1000000).toFixed(6)}</td>
                   <td>{(Math.round(line.fee_exec_onBUY * 1000000) / 1000000).toFixed(6)}</td> */}
                   <td>{(Math.round(line.result_amount_inSELL * 100000000) / 100000000).toFixed(8)}</td>
                   <td>{(Math.round(line.result_amount_inBUY * 100000000) / 100000000).toFixed(8)}</td>
-                  <td>{line.notexecutedamount_inCoin === null ? 0 : line.notexecutedamount_inCoin}</td>
-                  <td>{line.notexecutedamount_inUSDT === null ? 0 : line.notexecutedamount_inUSDT}</td>
+                  <td>{line.notexecutedamount_inCoin === null ? 0 : (Math.round(line.notexecutedamount_inCoin * 1000000) / 1000000).toFixed(6)}</td>
+                  <td>{line.notexecutedamount_inUSDT === null ? 0 : (Math.round(line.notexecutedamount_inUSDT * 1000000) / 1000000).toFixed(6)}</td>
                   <td>{(Math.round(line.net_earn_inbase * 1000000) / 1000000).toFixed(6)}</td>
                   <td>{(Math.round(line.earn_inUSDT * 1000000) / 1000000).toFixed(6)}</td>
                   <td>{(Math.round(line.net_earn_perc * 1000000) / 1000000).toFixed(6)}</td>
