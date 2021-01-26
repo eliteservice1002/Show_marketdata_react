@@ -1,6 +1,6 @@
 const axios = require('axios');
 axios.defaults.withCredentials = false;
-const { API_URL } = require('../config.js');
+const { API_URL } = require('../config.jsx');
 const urlBase = API_URL;
 
 // 'Content-Type': 'application/x-www-form-encoded',

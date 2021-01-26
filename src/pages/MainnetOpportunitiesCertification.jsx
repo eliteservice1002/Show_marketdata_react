@@ -5,11 +5,11 @@ import React, {
     useCallback,
   } from 'react';
   
-  import { MLUrl } from '../config.js';
-  import './ML_result.css';
+  import { CertificationUrl } from '../config.jsx';
+  import './MainnetOpportunitiesCertification.css';
   import Pagination from '@material-ui/lab/Pagination';
   
-  const ML_results = () => {
+  const MainnetOpportunitiesCertification = () => {
   
     const [datas, setDatas] = useState([]);
     const [productdatas, setProductdatas] = useState([]);
@@ -18,10 +18,10 @@ import React, {
     var fetchTimeout = useRef(null)
   
     const fetchData = useCallback(async () => {
-      const url = MLUrl
+      const url = CertificationUrl + 'mainnet/opportunities'
       const resp = await fetch(url)
       const newData = await resp.json()
-      setDatas(newData.results)
+      setDatas(newData.opportunities)
       fetchTimeout.current = setTimeout(fetchData, 4000)
     }, [])
   
@@ -61,15 +61,15 @@ import React, {
     }
   
     return (
-      <div className="ML_results">
+      <div className="MainnetResultsCertification">
         <div className="container">
           <table>
             <thead>
               <tr className='header'>
-                <td>Exchange</td>
-                <td>Pair</td>
-                <td>Forecast</td>
-                <td>R2</td>
+                <td>Opp ID From</td>
+                <td>Opp ID To</td>
+                <td>Timestamp</td>
+                <td>Opp Hash</td>
               </tr>
             </thead>
   
@@ -79,10 +79,10 @@ import React, {
                 return (
   
                   <tr key={index.toString()}>
-                    <td>{line.exchange}</td>
-                    <td>{line.pair}</td>
-                    <td>{line.forecast}</td>
-                    <td>{(Math.round(line.r2 * 100000000) / 100000000).toFixed(8)}</td>
+                    <td>{line.opp_id_from}</td>
+                    <td>{line.opp_id_to}</td>
+                    <td>{line.timestamp}</td>
+                    <td>{line.opp_hash}</td>
                   </tr>
                 )
   
@@ -103,5 +103,5 @@ import React, {
     )
   }
   
-  export default ML_results;
+  export default MainnetOpportunitiesCertification;
   

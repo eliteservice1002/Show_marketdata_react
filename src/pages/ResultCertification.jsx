@@ -5,11 +5,11 @@ import React, {
   useCallback,
 } from 'react';
 import Pagination from '@material-ui/lab/Pagination';
-import { CertificationUrl } from '../config.js';
-import './OppCertification.css';
+import { CertificationUrl } from '../config.jsx';
+import './ResultCertification.css';
 var flag = 0;
 
-const OppCertification = () => {
+const ResultCertification = () => {
 
   const [datas, setDatas] = useState([]);
   const [productdatas, setProductdatas] = useState([]);
@@ -20,7 +20,7 @@ const OppCertification = () => {
 
   const fetchData = useCallback(async () => {
     let newArr = []
-    const url = CertificationUrl + 'opportunities'
+    const url = CertificationUrl + 'results'
     const resp = await fetch(url, {
       method: 'GET',
       mode: 'cors',
@@ -31,14 +31,14 @@ const OppCertification = () => {
       }
     })
     const newData = await resp.json()
-
     if (flag === 0) {
-      setDatas(newData.opportunities)
-      newData.opportunities.map((val, index) => {
+      setDatas(newData.results)
+      newData.results.map((val, index) => {
         newArr.push('')
       })
       setRecalculateHash(newArr);
       flag++;
+
     }
     flag++;
     fetchTimeout.current = setTimeout(fetchData, 4000)
@@ -51,7 +51,6 @@ const OppCertification = () => {
       clearTimeout(fetchTimeout.current)
     }
   }, [fetchData])
-
 
   useEffect(() => {
     handleProductfilter(currentpage);
@@ -82,7 +81,7 @@ const OppCertification = () => {
 
   const Recalculate_Hash = useCallback(async (param, index) => {
     let newArr = [];
-    const url = CertificationUrl + `cert/opportunity/${param}`
+    const url = CertificationUrl + `cert/result/${param}`
     const resp = await fetch(url, {
       method: 'GET',
       mode: 'cors',
@@ -103,14 +102,14 @@ const OppCertification = () => {
   })
 
   return (
-    <div className="OppCertification">
+    <div className="ResultCertification">
       <div className="container">
         <table>
           <thead>
             <tr>
-              <td>Opportunity_ID</td>
+              <td>Result_ID</td>
               <td>Timestamp</td>
-              <td>Opportunity_Hash</td>
+              <td>Result_Hash</td>
               <td>Recalculate_Hash</td>
               <td>Recertify</td>
             </tr>
@@ -120,12 +119,12 @@ const OppCertification = () => {
             {productdatas.map((line, index) => {
               return (
                 <tr key={index.toString()}>
-                  <td>{line.opportunity_id}</td>
+                  <td>{line.result_id}</td>
                   <td>{line.timestamp}</td>
-                  <td>{line.opportunity_hash}</td>
+                  <td>{line.result_hash}</td>
                   <td>{recalculate_hash[index]}</td>
                   <button
-                    onClick={() => { Recalculate_Hash(line.opportunity_id, index) }}
+                    onClick={() => { Recalculate_Hash(line.result_id, index) }}
                   >Recertify</button>
                 </tr>
               )
@@ -145,4 +144,4 @@ const OppCertification = () => {
   )
 }
 
-export default OppCertification;
+export default ResultCertification;

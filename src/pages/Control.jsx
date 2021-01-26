@@ -10,7 +10,7 @@ import {
   Dropdown, DropdownMenu, DropdownToggle, DropdownItem,
 } from 'reactstrap';
 
-import { APIControlUrl, APIUrl, exchanges, coins_a, coins_b } from '../config.js';
+import { APIControlUrl, APIUrl, exchanges, coins_a, coins_b } from '../config.jsx';
 import './Control.css';
 
 

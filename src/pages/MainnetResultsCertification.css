@@ -1,0 +1,11 @@
+.MainnetResultsCertification {
+    text-align: center;
+  }
+  
+  .pagenation_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }

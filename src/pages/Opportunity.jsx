@@ -5,7 +5,7 @@ import React, {
   useCallback,
 } from 'react';
 import Pagination from '@material-ui/lab/Pagination';
-import { APIUrl } from '../config.js';
+import { APIUrl } from '../config.jsx';
 import './Opportunity.css';
 
 const Opportunity = () => {

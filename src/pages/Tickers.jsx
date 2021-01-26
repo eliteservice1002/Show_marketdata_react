@@ -3,7 +3,7 @@ import React, {
   useEffect,
 } from 'react';
 
-import { APIUrl, exchanges, pairs } from '../config.js';
+import { APIUrl, exchanges, pairs } from '../config.jsx';
 import './Tickers.css';
 
 const Tickers = () => {

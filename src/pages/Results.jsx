@@ -5,7 +5,7 @@ import React, {
   useCallback,
 } from 'react';
 
-import { APIUrl } from '../config.js';
+import { APIUrl } from '../config.jsx';
 import './Results.css';
 import Pagination from '@material-ui/lab/Pagination';
 

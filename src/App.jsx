@@ -19,11 +19,14 @@ import './App.css';
 import Tickers from './pages/Tickers';
 import Results from './pages/Results';
 import Control from './pages/Control';
-import Historic from './pages/Historic';
+// import Historic from './pages/Historic';
 import Opportunity from './pages/Opportunity';
 import OppCertification from './pages/OppCertification';
 import ResultCertification from './pages/ResultCertification';
 import MLResult from './pages/ML_result';
+import MainnetResultsCertification from './pages/MainnetResultsCertification';
+import MainnetOpportunitiesCertification from './pages/MainnetOpportunitiesCertification';
+
 
 const App = () => {
 
@@ -61,14 +64,24 @@ const App = () => {
               <Link to='/resultcertification'>Results Certification</Link>
             </Button>
           </Col>
-          <Col xs="2" className="header_menu">
+          {/* <Col xs="2" className="header_menu">
             <Button>
               <Link to='/historic'>Historic</Link>
+            </Button>
+          </Col> */}
+          <Col xs="2" className="header_menu">
+            <Button>
+              <Link to='/mlresult'>ML Result</Link>
             </Button>
           </Col>
           <Col xs="2" className="header_menu">
             <Button>
-              <Link to='/mlresult'>ML Result</Link>
+              <Link to='/mainnet_results'>Mainnet Results Certification</Link>
+            </Button>
+          </Col>
+          <Col xs="2" className="header_menu">
+            <Button>
+              <Link to='/mainnet_opportunities'>Mainnet Opportunities Certification</Link>
             </Button>
           </Col>
         </Row>
@@ -92,13 +105,18 @@ const App = () => {
           <Route path='/resultcertification'>
             <ResultCertification />
           </Route>
-          <Route path='/historic'>
+          {/* <Route path='/historic'>
             <Historic />
-          </Route>
+          </Route> */}
           <Route path='/mlresult'>
             <MLResult />
           </Route>
-          
+          <Route path='/mainnet_results'>
+            <MainnetResultsCertification />
+          </Route>
+          <Route path='/mainnet_opportunities'>
+            <MainnetOpportunitiesCertification />
+          </Route>
         </Switch>
       </Router>
     </Container>
